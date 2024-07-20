@@ -1,0 +1,99 @@
+.user_all
+{
+    width:900px; 
+    margin : 0px auto;
+    padding: 100px 10px 150px 10px;
+}
+.user_title
+{
+    font-size: 50px;
+    width:900px; 
+    /* height: 80px; */
+    border: 0;
+    border-bottom: 4px solid #C7EEB1;
+    text-align : center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.user_list
+{
+    margin-top: 30px;
+    /* width:630px;  */
+    height: 100%;
+}
+.user_content
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 2px solid #C7EEB1;
+    margin-top : 30px;
+}
+.list
+{
+    width: 95%;
+    margin: 0px auto;
+    border-collapse: collapse;
+    /* border-bottom: 1px solid #d3d3d3; */
+}
+.list_title
+{
+    font-weight : bold;
+    border-bottom: 2px solid #C7EEB1;
+}
+.user_item 
+{
+    border-bottom: 1px solid #C7EEB1;
+}
+/*페이지 나누기*/
+.page_wrap 
+{
+    text-align:center;
+    font-size:0;
+    margin-top:50px;
+    margin-bottom:50px; 
+  }
+ .page_nation 
+ {
+    display:inline-block;
+ }
+ .page_nation .none 
+ {
+    display:none;
+ }
+ .page_nation a 
+ {
+    display:block;
+    margin:0 3px;
+    float:left;
+    border:1px solid #C7EEB1;
+    width:28px;
+    height:28px;
+    line-height:28px;
+    text-align:center;
+    background-color:#fff;
+    font-size:13px;
+    color:#000000;
+    text-decoration:none;
+ }
+ .page_nation a:HOVER 
+ {
+    background-color:#98E294;
+    color:#fff;
+    border:1px solid #C7EEB1;
+ }
+ .page_nation .arrow 
+ {
+    border:1px solid #C7EEB1;
+ }
+ .page_nation a.active
+ {
+    background-color:#98E294;
+    color:#fff;
+    border:1px solid #C7EEB1;
+ }
+ button:focus
+ { 	
+    border: none;
+    outline:none;
+ }

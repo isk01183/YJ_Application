@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.FoodRoad.biz.user.UserMapper">
+	
+	<select id="selectUserList" parameterType="com.example.FoodRoad.biz.user.dto.UserSearch" resultMap="com.example.FoodRoad.biz.user.entity.User">
+		SELECT
+	           USER_ID
+	         , NICK_NAME
+	         , EMAIL
+	         , PHONE_NO
+	         , REG_DATE
+	         , UDT_DATE
+	      FROM foodroad.dbo.user_tbl
+	     WHERE USER_ID   = 'jun12'
+	</select>
+	
+</mapper>

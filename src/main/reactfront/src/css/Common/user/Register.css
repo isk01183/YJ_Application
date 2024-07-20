@@ -1,0 +1,290 @@
+.Register_Main { 
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    height: 100vh; /* 컨테이너의 높이 설정 */
+} 
+
+.Register_Main * { 
+    box-sizing:border-box; 
+} 
+
+.Register_Main h1, h3 { font-weight: 300; }
+
+.Register_Main h3 { color: #C7EEB1; }
+
+.Register_Main .body {
+	font-family: Helvetica;
+	/* background: #eee; */
+  -webkit-font-smoothing: antialiased;
+}
+
+.Register_Main hgroup h1{ 
+	text-align:center;
+	/* margin-top: 4em; */
+    font-family: "Titillium Web", "RixSGo", sans-serif !important;
+    line-height: 120%;
+	color: #98E294;
+    font-weight: bold;
+}
+
+
+.Register_Main form {
+	width: 450px; /* 위스를 변경하면 모든줄이 늘이난다. */
+	margin: 4em auto;
+	padding: 3em 2em 2em 2em;
+	background: #fafafa;
+	border: 1px solid #ebebeb;
+	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+.Register_Main .group { 
+	position: relative; 
+	margin-bottom: 30px; 
+}
+
+.Register_Main .account_Check { 
+
+	background-color: #888888;
+	position: relative; 
+	margin-bottom: 30px; 
+}
+
+.Register_Main input {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	/* -webkit-appearance: none; */
+	display: block;
+	background: #fafafa;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+}
+
+.Register_Main input:focus { outline: none; }
+
+
+/* Label */
+
+.Register_Main label {
+	color: #FFB6C1; 
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: all 0.2s ease; /* 클릭시 이동하는 속도 */
+}
+
+
+/* active */
+
+.Register_Main input:focus ~ label, input.used ~ label {
+	top: -20px;
+	transform: scale(.75);
+	left: -2px;
+	/* font-size: 14px; */
+	color: #98E294; /* 클릭시 위로 올라갔을때 색상 */
+}
+
+
+/* Underline */
+
+.Register_Main .bar {
+	position: relative;
+	display: block;
+	width: 100%; /* 클릭시 생성되는 텍스트상자의 하단 줄 */
+}
+
+.Register_Main .bar:before, .bar:after {
+	content: '';
+	height: 2px; 
+	width: 0;
+	bottom: 1px; 
+	position: absolute;
+	background: #C7EEB1; 
+	transition: all 0.2s ease;
+}
+
+.Register_Main .bar:before { left: 50%; }
+
+.Register_Main .bar:after { right: 50%; }
+
+
+/* active */
+
+.Register_Main  input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
+
+
+/* 클릭시 생성되는 가로의 바 */
+
+.Register_Main .highlight {
+	position: absolute;
+	height: 60%; 
+	width: 100%; /* 클릭시 생성되는 가로의 바의 길이 */
+	top: 25%; 
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5; /* 클릭시 생성되는 가로의 바의 시간 */
+}
+
+
+/* active */
+
+.Register_Main input:focus ~ .highlight {
+	animation: inputHighlighter 0.3s ease;
+}
+
+
+/* Animations */
+
+@keyframes inputHighlighter {
+	from { background: #C7EEB1; } /* 텍스트 창 클릭시 배경색 */
+	to 	{ width: 0; background: transparent; }/* 텍스트 창 클릭시 배경색 (돌아올떄)*/
+}
+
+
+/* Button */
+
+.Register_Main .button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: .3em 0 1em 0;
+  width: 100%;
+  vertical-align: middle;
+  color: #fff; /* 버튼안의 택스트 글자색 */
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #C7EEB1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.Register_Main .button:focus { outline: 0; }
+
+
+/* Button modifiers */
+
+.Register_Main .buttonBlue {
+  background: #C7EEB1; /* 버튼 색상 */
+  text-shadow: 1px 1px 0 #98E294;
+  text-decoration: none;
+  width: 40%;
+  margin: 0% 5% 0% 5%;
+}
+
+.Register_Main .buttonBlue:hover { background: #98E294; } /* 버튼 색상 */
+
+
+/* Ripples container */
+
+.Register_Main .ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* 물결의 원형 */
+
+.Register_Main .ripplesCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.Register_Main .ripples.is-active .ripplesCircle {
+  animation: ripples .4s ease-in;
+}
+
+/* 물결애니메이션 */
+@keyframes ripples {
+  0% { opacity: 0; }
+
+  25% { opacity: 1; }
+
+  100% {
+    width: 200%; /*물결의 세로 */
+    padding-bottom: 200%; /* 물결의 가로 */
+    opacity: 0; /* 물결의 느낌이 숫자가 높으면 이상해진다 */
+  }
+}
+
+
+
+.Register_Main footer { text-align: center; }
+
+.Register_Main footer p { /* 하단에 p태그안의 택스트 */
+	color: #888;
+	font-size: 13px;
+	letter-spacing: .4px;
+}
+
+.Register_Main footer a {
+	color: #FFB6C1; /* 하단에 링크의 색상 */
+	text-decoration: none;
+	transition: all .2s ease;
+}
+
+.Register_Main footer a:hover {
+	color: #666; /* 하단에 링크가 호버 됐을때 색상 */
+	text-decoration: underline;
+}
+
+.Register_Main footer img {
+	width: 80px;
+	transition: all 0.2s ease; /* 하단에 이미지의 색이 변하는 시간 */
+}
+
+.Register_Main footer img:hover { opacity: 0.7;} /* 하단에 이미지의 호버됐을 때 불투명도 (max 1) */
+
+.Register_Main footer img:focus , footer a:focus { outline: none; }
+
+/* 필수 체크 */
+.account_Check div {
+	color: #ff4f4f;
+}
+
+
+.gender_div{
+	width: 100%;
+	height: 50px;
+	color: #98E294;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.gender_sel{
+	width: 75%;
+	height: 50px;
+	text-align: center;
+	float: right;
+	font-size: 18px;
+	margin-left: 7%;
+}
+
+.gender_h1{
+	width: 20%;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+}

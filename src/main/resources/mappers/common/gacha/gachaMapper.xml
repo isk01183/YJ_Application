@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.FoodRoad.biz.common.gacha.GachaMapper">
+
+	<select id="selectGachaList" parameterType = "com.example.FoodRoad.biz.common.gacha.dto.GachaSearch" resultType="com.example.FoodRoad.biz.common.gacha.entity.Gacha">
+		SELECT 		/* GachaMapper.selectGachaList */
+			SGMT_ID AS sgmtId				-- 세그먼트ID
+			, GACHA_DV_CD AS gachaDvCd 		-- 가챠구분코드
+			, GACHA_ID AS gachaId 			-- 가챠ID
+			, GACHA_ELMT_CD AS gachaElmtCd 	-- 가챠속성코드
+			, GACHA_LVL AS gachaLvl 		-- 가챠등급
+			, GACHA_NAME AS gachaName 		-- 가챠이름
+			, PICKUP_YN AS pickupYn 		-- 픽업 설명 여부
+		FROM foodroad.dbo.GACHA_BAS_TBL
+		ORDER BY GACHA_ID
+	</select>
+
+</mapper>

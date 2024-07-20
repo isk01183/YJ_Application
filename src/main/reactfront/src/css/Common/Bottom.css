@@ -1,0 +1,96 @@
+.ico.instagram{
+	background-color: #9C00FF;
+}
+
+.ico.twitter{
+	background-color: #00acee;
+}
+
+.ico.weibo{
+	background-color: #D30505;
+}
+
+.ico.facebook{
+	background-color: #3b5998;
+}
+
+.ico.youtube{
+	background-color: red;
+}
+#botton{
+    width: 80%;
+    min-width: 1024px;
+    height: 120px;
+    margin: auto;
+}
+
+#botton p {
+    font-size: 8px;
+    line-height: 32px;
+    vertical-align: bottom;
+    margin: 0px 13px 13px 0px;
+    color: #ccc;
+}
+#botton ul, ol, dl {
+   list-style:none;
+}
+#botton li{
+ float: right;
+ margin-right: 5px;
+}
+#botton a {
+    position: relative;
+    display: inline-block;
+    color: #282828;
+    text-decoration: none;
+    outline: 0;
+}
+.ico {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    border: 1px solid #C8C8C8;
+    background-size: 100%;
+    background-position: top;
+}
+
+#footer {
+	width:100%;
+	height:50px;
+	top:10px;
+    clear: both;
+    position: relative;
+    border-top: 1px solid #C8C8C8;
+    color: #969696;
+}
+#footer p, #footer a, #footer span {
+    font-family: "Titillium Web", "RixSGo", sans-serif !important;
+    line-height: 120%;
+	color: #9E9E9E;
+    font-weight: bold;
+    font-size: 9px;
+}
+#nav_menu ul li {
+	margin-right: 15px;
+}
+
+#nav_menu ul li a{
+	background-color : #fff;
+	color : #808080;
+	font-weight: 600;
+}
+#nav_menu ul li a:hover{
+	background-color : #fff;
+	color : #383838;
+	font:bold;
+	font-weight: 900;
+}
+
+#nav_menu .ico_recruit{
+	background-color: red;
+    padding: 1px 6px 2px 2px;
+    margin-left: 7px;
+    color: white;
+    font-weight: 550;
+}

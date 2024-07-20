@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=foodroad
+    username: foodroad2
+    password: Kqju36381004$
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver

@@ -1,0 +1,32 @@
+*{
+    font-family: "Titillium Web", "RixSGo", sans-serif !important;
+    line-height: 120%;
+	color: #9E9E9E;
+    font-weight: bold;
+}
+
+/* 상세버튼 영역 css */
+.fix_buttons {
+    width: 85%;
+    min-width: 760px;
+    height: 60px;
+    display: inline-block
+}
+
+/* 상세버튼 css */
+.fix_button {
+    width: 60px;
+    height: 30px;
+    background-color: #ffffff;
+    margin: 10px 10px 10px 10px;
+    float: right;
+    border-radius: 10px;
+    border-width: thin;
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration:none;
+    border: 1px solid #C7EEB1;
+}
+.fix_button:focus{
+    border: 1px solid #C7EEB1;
+}

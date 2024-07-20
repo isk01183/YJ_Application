@@ -1,0 +1,97 @@
+.f_div {
+    width: 100%;
+}
+.i_div {
+    display: flex;
+    justify-content: center;
+    margin: 0px 20px 0px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    min-width: 760px;
+}
+.t_div {
+    width: 100px;
+    border: 1px solid #C7EEB1;
+}
+.b_div {
+    width: 400px;
+    border: 1px solid #C7EEB1;
+}
+.editor_div {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.editor_div > div {
+    width: 85%;
+    min-width: 760px;
+    justify-content: center;
+    margin: 0px 20px 0px 20px;
+}
+.rv_div {
+    width: 85%;
+    min-width: 760px;
+    justify-content: center;
+    margin: 0px 20px 0px 20px;
+    border: 1px solid #C7EEB1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 300px;
+    overflow: auto;
+}
+.rvin_head {
+    width: 90%;
+    height: 30px;
+    margin: 0px auto;
+    margin-top: 15px;
+    border: 1px solid #C7EEB1;
+}
+.rvin_body {
+    width: 90%;
+    height: 180px;
+    margin: 0px auto;
+    margin-top: 15px;
+    border: 1px solid #C7EEB1;
+}
+.rvin_foot {
+    width: 90%;
+    height: 30px;
+    margin: 0px auto;
+    margin-top: 15px;
+    border: 1px solid #C7EEB1;
+}
+.rvin_btn {
+    float: right;
+    margin-top: 3px;
+}
+.rv_list {
+    width: 90%;
+    height: 30px;
+    margin: 0px auto;
+    margin-top: 15px;
+    border: 1px solid #C7EEB1;
+}
+.rv_view {
+    width: 60%;
+    height: 30px;
+    margin-top: 5px;
+    float: right;
+    border: 1px solid #C7EEB1;
+}
+/* .rv_in {
+    width: 70%;
+    height: 30px;
+    float: left;
+}
+.rv_save {
+    width:30%;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #C7EEB1; 
+    float: right;
+} */

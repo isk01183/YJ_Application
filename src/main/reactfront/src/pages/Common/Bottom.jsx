@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../css/Common/Bottom.css';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Bottom() {
     return (

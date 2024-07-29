@@ -1,13 +1,21 @@
+
+html{
+    background-color : rgba(169, 179, 136, 1);
+}
 .Home_Main{
     width: 600px;
     height: 700px;
-    border: 2px solid;
+    /* border: 2px solid; */
     border-radius: 30px;
 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    background-color : rgba(95, 111, 82, 1);
+    border: 2px solid rgba(254, 250, 224, 1);
+    box-shadow: 0px 0px 15px rgba(254, 250, 224, 1);
 }
 
 .Home_Header{
@@ -24,10 +32,13 @@
 .Application{
     width: 83px;
     height: 83px;
-    border: 3px solid;
     border-radius: 10px;
     margin: 23px;
     float: left;
+
+    background-color : rgba(254, 250, 224, 1);
+    border: 2px solid rgba(254, 250, 224, 1);
+    box-shadow: 0px 0px 15px rgba(254, 250, 224, 1);
 }
 
 .Hidden_Application{
@@ -45,8 +56,11 @@
     height: 83px;
     border: 0px solid;
     border-radius: 10px;
-    background-color: #FFFFFF;
+    color: rgba(95, 111, 82, 1);
+    background-color : rgba(185, 148, 112, 1);
+    box-shadow: 0px 0px 15px rgba(185, 148, 112, 1);
 }
+
 .Home_Tail{
     width: 600px;
     height: 50px;

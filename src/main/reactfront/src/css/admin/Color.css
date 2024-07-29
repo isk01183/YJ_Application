@@ -1,0 +1,185 @@
+
+  .main{
+    width: 80%;
+    min-width : 478px;
+    height : 80%;
+    border: 1px solid rgba(254, 250, 224, 1);
+    background-color : rgba(95, 111, 82, 1);
+    box-shadow: 0px 0px 15px rgba(254, 250, 224, 1);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .color{
+    width: 130px;
+    height : 150px;
+    margin : 5px;
+    float: left;
+  }
+  .color_box{
+    width: 124px;
+    height : 124px;
+  /*   margin : 5px; */
+    border: 3px solid #ffffff;
+    background-color : rgba(254, 250, 224, 1);
+  /*   float: left; */
+  /*   padding : 5px; */
+  }
+  
+  .color_hex{
+    width: calc(100%-10px);
+    height : 30px;
+    color : #ffffff;
+    margin-top : 5px;
+    border: 1px solid #ffffff;
+    /* 가로,세로 가운데 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .color_options{
+   /* calc( 100% - 227px);
+    => 100% 에서 227px 뺸 값 설정
+    */
+    width: calc(100% - 147px);
+    min-width : 200px;
+    max-width : 350px;
+    height: 165px;
+    margin : 5px 5px 5px 0px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    color: #ffffff;
+  /*   float: right; */
+    float: left;
+  }
+  
+  .range-slider{
+    width: calc(100%-2px);
+    min-width : 200px;
+    max-width : 350px;
+    height: 25px;
+    /* 내부 텍스트 가운데 정렬 */
+    text-align: center;
+    /* 가로,세로 가운데 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff;
+    margin-bottom: 5px;
+  }
+  .rgb_set{
+    width : 30px;
+    float: left;
+  }
+  .range-slider__range{
+    width: calc(100% - 100px);
+    -webkit-appearance: none;
+    border-radius: 5px;
+  }
+  .range-slider:nth-child(1) .range-slider__range{
+    background: linear-gradient(to right, RGB(255,255,255), RGB(255,0,0) );
+  }
+  .range-slider:nth-child(2) .range-slider__range{
+    background: linear-gradient(to right, RGB(255,255,255), RGB(0,255,0) );
+  }
+  .range-slider:nth-child(3) .range-slider__range{
+    background: linear-gradient(to right, RGB(255,255,255), RGB(0,0,255) );
+  }
+  .range-slider:nth-child(4) .range-slider__range{
+    background: linear-gradient(to right, RGB(255,255,255,1), RGB(0,0,0,1) );
+  }
+  .range-slider__value{
+    width : 50px;
+    float: right;
+  }
+  
+  .color_palette{
+    width: calc(100% - 12px);
+  /*   min-width : 200px; */
+    max-width : 485px;
+    height: 115px;
+    margin : 0px 5px 5px 5px;
+    border: 1px solid #ffffff;
+    float: left;
+    
+  /*   display: flex; */
+  /*   align-items: center; */
+  /*   justify-content: center; */
+  }
+  
+  .asdf{
+    width: calc(100% - 504px);
+    min-width : 0px;
+  /*   max-width : 485px; */
+    height: 287px;
+    margin : 5px 5px 5px 0px;
+    border: 1px solid #ffffff;
+    float: right;
+  }
+  
+  /* 가로 길이가 10px 이하일 때 적용되는 스타일 */
+  @media (max-width: 645px) {
+      .asdf {
+          display: none; /* 가로가 0px일 때 숨김 */
+      }
+  }
+  
+  .save_colors{
+    width: 100%;
+    height : 73px;
+  /*   border: 1px solid #ffffff; */
+  /*   overflow: hidden; /* 넘치는 부분을 숨김 */ 
+     overflow: scroll;
+    white-space: nowrap; /* div들을 한 줄에 나열 */  
+    overflow: auto;
+  }
+  
+  .save_color{
+    width: 46.4px;
+    height: 46px;
+    border: 1px solid #ffffff;
+    margin : 5px 0px 0px 5px; 
+  /*   float: left; */
+     display: inline-block; /* div들을 인라인 블록으로 표시 */
+  }
+  
+  /* 마지막 컬러 마진 */
+  .save_color:nth-last-child(1){
+    margin : 5px 5px 0px 5px; 
+  }
+  
+  #colorSaveBtn{
+    width: 80px;
+    height: 26px;
+  /*   border: none; */
+  /*   cursor: pointer; */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 1); /*#ffff99*/
+    color : rgba(255, 255, 255, 1);
+    margin-top : 5px; 
+  /*   padding : 5px; */
+  /*   padding-color : #111111; */
+    border: 1px solid #ffffff;
+  /*   outline: 0px solid rgba(0, 0, 0, 1); */
+  /* 전체 그림자 효과 */
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 1);
+  }
+  
+  /* 클릭시마다 백그라운드 색상 변경  */
+  @keyframes clickAnimation {
+    0% {
+      background-color: rgba(0, 0, 0, 1);
+    }
+    50% {
+      color : rgba(0, 0, 0, 1);
+      background-color: rgba(255, 255, 255, 1);
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+    }
+    100% { 
+      background-color: rgba(0, 0, 0, 1);
+    }
+  }
+  

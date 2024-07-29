@@ -83,7 +83,7 @@ function Application() {
             </Link>
         </div>
         <div className='Application'>
-            <Link to="/user">
+            <Link to="/admin">
             <button>Admin</button>
             </Link>
         </div>

@@ -4,7 +4,7 @@ spring:
     # url: jdbc:sqlserver://192.168.30.252:1433;databaseName=foodroad;encrypt=true;trustServerCertificate=true
     # username: foodroad2
     # password: Kqju36381004$
-    url: jdbc:sqlserver://192.168.219.111:1433;databaseName=FoodRoad;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://192.168.50.60:1433;databaseName=FoodRoad;encrypt=true;trustServerCertificate=true
     username: isk01183
     password: '!q1w2e3r4'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver

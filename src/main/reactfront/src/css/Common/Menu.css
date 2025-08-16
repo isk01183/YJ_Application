@@ -1,9 +1,3 @@
-*{
-    font-family: "Titillium Web", "RixSGo", sans-serif !important;
-    line-height: 120%;
-	color: #9E9E9E;
-    font-weight: bold;
-}
 
 .Menu_Main{
     width: 80%;
@@ -15,14 +9,19 @@
     top: 0px;
     right: 0px;
     z-index: 1;
-    background-color: #ffffff;
-    border: 1px solid #C7EEB1;
+
+    border-radius: 10px;
+    color: var(--main_color_4);
+    background-color : var(--main_color_1); 
+    border: 2px solid var(--main_color_3);
+    box-shadow: 0px 0px 15px var(--main_color_3);
 }
 .logo{
     width: 75px;
     height: 75px;
-    margin: 5px 5px 5px 0px;
-    background-color: #C7EEB1;
+    margin: 5px;
+    background-color : var(--main_color_3);
+    border-radius: 10px;
     float: left;
     /* 상하좌우 정중앙 정렬하기 */
     display: flex;
@@ -31,13 +30,14 @@
 }
 .logo a{
     width: 100%;
-    height: 110px;
+    height: 100%;
+    border-radius: 10px;
 }
 .Menu_Content{
-    width: 90%;
+    width: calc(100% - 155px);
     min-width: 929px;
     height: 75px;
-    margin: 5px;
+    margin: 5px 5px 5px 55px;
     /* background-color: #555555; */
     float: right;
 }
@@ -48,31 +48,29 @@
     /* background-color: #666666; */
 }
 .Info_Content{
-    width: 80px;
     height: 25px;
-    margin: 0px 10px 0px 0px;
-    /* background-color: #777777; */
+    margin: 0px 30px 0px 0px;
+
     float: right;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size : 13px;
+
+    border-radius: 10px;
+    color: var(--main_color_3);
 }
 .Info_Content a{
+    width: 100%;
+    text-align: center;
     text-decoration:none;
     font-size : 13px;
+    color: var(--main_color_3);
 }
 
-.Info_Content a:hover{
-	background-color : #fff;
-	color : #383838;
-	font-weight:bold;
-	font-weight: 900;
-}
 .Menu_Title{
-    width: 200px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 40px;
     /* background-color: #666666; */
     float: left;
     /* 상하좌우 정중앙 정렬하기 */
@@ -81,12 +79,10 @@
     align-items: center;
 }
 .Menu_Title a{
-    text-decoration:none;
+    width: 100%;
     font-size : 20px;
+    text-align: center;
+    text-decoration:none;
+    color: var(--main_color_3);
 }
-.Menu_Title a:hover{
-	background-color : #fff;
-	color : #383838;
-	font-weight:bold;
-	font-weight: 900;
-}
+

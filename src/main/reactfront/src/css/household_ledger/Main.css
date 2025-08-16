@@ -1,0 +1,276 @@
+
+.Content_All{
+    width: 80%;
+    min-width: 1024px;
+    min-height: 768px;
+    margin: auto;
+}
+
+.Content_Main{
+    width: calc(100% - 28px - 17%);
+    height: 100%;
+    min-height: 768px;
+    max-height: 770px;
+    float: right;
+   
+    border-radius: 10px;
+    color: var(--main_color_4);
+    background-color : var(--main_color_1); 
+    border: 2px solid var(--main_color_3);
+    box-shadow: 0px 0px 15px var(--main_color_3);
+
+    position: relative;
+    display: flex;
+    justify-content: center; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    transition: 1s;
+}
+
+  
+.App{
+width : 75%;
+height : 100%;
+min-height:700px;
+float:left;
+display: flex;
+justify-content: center; /* 가로 정렬 */
+align-items: center; /* 세로 정렬 */
+
+}
+  
+.Household_Ledger_Main{
+    width: calc(100% - 40px);
+    height: 700px;
+    /* border: 2px solid; */
+    border-radius: 30px;
+    margin : 0px auto;
+    background-color : var(--main_color_1);
+    border: 2px solid var(--main_color_3);
+    box-shadow: 0px 0px 15px var(--main_color_3);
+}
+
+.Home_Header{
+    width: 100%;
+    height: 50px;
+    /* border-bottom: 1px dashed; */
+    margin-top : 15px;
+}
+.Home_Content{
+    width : calc(100% - 60px);
+    height : calc(100% - 60px - 50px );
+    padding : 30px;
+}
+.week{
+width:  calc( 100% / 7 - 10px - 2px );
+height: calc( 100% / 14 - 10px - 4px );
+border-radius: 10px;
+margin: 5px;
+float: left;
+
+border: 1px solid var(--main_color_3);
+color : var(--main_color_3);
+background-color : var(--main_color_4);
+box-shadow : 0px 0px 10px var(--main_color_3);
+font-size: 16px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
+}
+
+.week:nth-child(1){ 
+color: #D41313;
+}
+.week:nth-child(7){ 
+color: #5260D0;
+}
+
+.Application{
+    width:  calc( 100% / 7 - 10px - 4px );
+    height: calc( 100% / 6.5 - 10px - 4px );
+    border-radius: 10px;
+    margin: 5px;
+    float: left;
+    background-color : var(--main_color_3); 
+    border: 2px solid var(--main_color_3);
+    box-shadow: 0px 0px 15px var(--main_color_3);
+}
+
+.Application .calendar_days{
+    width: 100%;
+    height: 100%;
+    border: 0px solid;
+    border-radius: 10px;
+    color: var(--main_color_1);
+    background-color : var(--main_color_4);
+    box-shadow: 0px 0px 15px var(--main_color_4);
+}
+
+.Hidden_Application{
+    width:  calc( 100% / 7 - 10px - 4px );
+    height: calc( 100% / 6.5 - 10px - 4px );
+    border-radius: 10px;
+    margin: 5px;
+    float: left;
+
+    background-color : var(--main_hidden_color_3);
+    border: 2px solid var(--main_hidden_color_3);
+    box-shadow: 0px 0px 15px var(--main_hidden_color_3);
+    
+}
+.Hidden_Application .calendar_days{
+    width: 100%;
+    height: 100%;
+    border: 0px solid;
+    border-radius: 10px;
+    color: rgba(95, 111, 82, 0.5);
+    background-color : var(--main_hidden_color_3);
+    box-shadow: 0px 0px 15px var(--main_hidden_color_4);
+}
+
+.calendar_days_header{
+width: calc(100% - 2px);
+height: 30%;
+
+margin-bottom : 3%;
+color : var(--main_color_3);
+border-bottom : 1px solid var(--main_color_3);
+
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
+
+font-size: 18px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+.calendar_days_header_holiday{
+width: calc(100% - 2px);
+height: 30%;
+margin-bottom : 3%;
+color : #D41313;
+border-bottom : 1px solid var(--main_color_3);
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
+font-size: 18px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+
+.calendar_days_header_saturday{
+width: calc(100% - 2px);
+height: 30%;
+margin-bottom : 3%;
+color : #5260D0;
+border-bottom : 1px solid var(--main_color_3);
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
+font-size: 18px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+.day_income{
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+/*   color : #4169E1; */
+color : #6A5ACD;
+}
+
+.day_spending{
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+color : #D41313;
+/*   color : #AE3A40; */
+
+}
+.home_title{
+color : var(--main_color_3);
+text-align : center;
+font-size: 40px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+.sel_year{
+width: calc( 100% / 7 - 18px );
+height: 30px;
+border-radius: 5px;
+color : var(--main_color_3);
+background-color : var(--main_color_4);
+box-shadow : 0px 0px 10px var(--main_color_3);
+margin : 0 5px 0 35px;
+
+text-align : center;
+font-size: 20px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+.sel_month{
+width: 60px;
+height: 30px;
+border-radius: 5px;
+color : var(--main_color_3);
+background-color : var(--main_color_4);
+box-shadow : 0px 0px 10px var(--main_color_3);
+
+text-align : center;
+font-size: 20px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+font-family: 'Arial', sans-serif; /* 폰트 변경 */
+}
+
+.abc{
+    width:calc(25% - 2px);
+    height:700px;
+    float:right;
+    border-radius: 15px;
+    background-color : var(--main_color_1);
+    border-left: 2px solid var(--main_color_3);
+    box-shadow: -2px 0px 5px var(--main_color_3);
+}
+
+.abc_header{
+width:100%;
+height:100px;
+border-radius: 15px;
+color: var(--main_color_3);
+font-size: 20px; /* 폰트 크기 설정 */
+font-weight: bold; /* 폰트 굵기 설정 */
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
+/* background-color:#666666; */
+}
+
+.abc_content{
+width:100%;
+height:600px;
+border-radius: 15px;
+/* background-color:#888888; */
+overflow:auto;
+}
+
+.abc_con_dt{
+width : 80%;
+height : 110px;
+margin:15px auto;
+border-radius: 15px;
+/*   margin: 0px auto; */
+color: var(--main_color_4);
+background-color : var(--main_color_4); 
+border: 2px solid var(--main_color_3);
+box-shadow: 0px 0px 15px var(--main_color_3);
+}
+
+.abc_con_dt_hd{
+width:100%;
+height:25px;
+border-bottom: 2px solid var(--main_color_3);
+}

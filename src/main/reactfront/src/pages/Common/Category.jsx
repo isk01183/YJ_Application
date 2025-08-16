@@ -8,9 +8,9 @@ function Category() {
         <>
             <div className='Category_Main'>
                 <div className='Category_Box'>
-                    <div className='Category_Test'>ALL</div>
-                    <div className='Category_Test'>Test</div>
-                    <div className='Category_Test'>Test</div>
+                    <div className='Category_Text'>ALL</div>
+                    <div className='Category_Text'>Test</div>
+                    <div className='Category_Text'>Test</div>
                 </div>
 
             </div>
@@ -27,9 +27,9 @@ function Category_on_off() {
     var Category_Main_Div_Width = window.getComputedStyle(Category_Main_Div).getPropertyValue('width');
     // 0px 일경우 펼치기
     if (Category_Main_Div_Width == '0px') {
-        Category_Main_Div.style.width = '17%';
+        Content_Main_Div.style.width = 'calc(100% - 28px - 17%)';
+        Category_Main_Div.style.width = 'calc(17% - 2px)';
         Category_Main_Div.style.border = '1px solid #C7EEB1'
-        Content_Main_Div.style.width = '80%';
         // 왼쪽 메뉴바를 펼치고 text를 변경하기 위한 Timeout 0.9초 설정
         setTimeout(function() {
             Category_bnt_Div.textContent = '◀';
@@ -38,7 +38,7 @@ function Category_on_off() {
     } else{
         Category_Main_Div.style.width = '0%';
         Category_Main_Div.style.border = '0px solid #C7EEB1'
-        Content_Main_Div.style.width = '98%';
+        Content_Main_Div.style.width = 'calc(100% - 28px)';
         // 왼쪽 메뉴바를 숨기고 text를 변경하기 위한 Timeout 0.9초 설정
         setTimeout(function() {
             Category_bnt_Div.textContent = '▶';

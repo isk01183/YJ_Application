@@ -1,8 +1,31 @@
+:root {
+    --main_color_1 : rgba(95, 111, 82, 1);
+    --main_color_2 : rgba(169, 179, 136, 1);
+    --main_color_3 : rgba(254, 250, 224, 1);
+    --main_color_4 : rgba(185, 148, 112, 1);
+
+    --main_hidden_color_1 : rgba(95, 111, 82, 0.5);
+    --main_hidden_color_2 : rgba(169, 179, 136, 0.5);
+    --main_hidden_color_3 : rgba(254, 250, 224, 0.5);
+    --main_hidden_color_4 : rgba(185, 148, 112, 0.5);
+
+    --holiday_color : rgba(212, 19, 19,1 );
+    --saturday_color : rgba(82, 96, 208, 1);
+    --income_color : rgba(212, 19, 19, 1);
+    --spending_color : rgba(106, 90, 205, 1);
+  }
+  
+
 *{
     font-family: "Titillium Web", "RixSGo", sans-serif !important;
     line-height: 120%;
 	color: #9E9E9E;
     font-weight: bold;
+}
+
+
+html{
+    background-color : var(--main_color_2);
 }
 
 /* 상세버튼 영역 css */

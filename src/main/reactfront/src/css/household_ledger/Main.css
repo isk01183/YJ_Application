@@ -1,6 +1,7 @@
 
 .Content_All{
     width: 80%;
+    height: calc(100vh - 229px);
     min-width: 1024px;
     min-height: 768px;
     margin: auto;
@@ -10,12 +11,12 @@
     width: calc(100% - 28px - 17%);
     height: 100%;
     min-height: 768px;
-    max-height: 770px;
+    /* max-height: 770px; */
     float: right;
    
     border-radius: 10px;
     color: var(--main_color_4);
-    background-color : var(--main_color_1); 
+    background-color : var(--main_color_1);
     border: 2px solid var(--main_color_3);
     box-shadow: 0px 0px 15px var(--main_color_3);
 
@@ -40,7 +41,7 @@ align-items: center; /* 세로 정렬 */
   
 .Household_Ledger_Main{
     width: calc(100% - 40px);
-    height: 700px;
+    height: calc(100% - 100px);
     /* border: 2px solid; */
     border-radius: 30px;
     margin : 0px auto;
@@ -49,13 +50,13 @@ align-items: center; /* 세로 정렬 */
     box-shadow: 0px 0px 15px var(--main_color_3);
 }
 
-.Home_Header{
+.Calendar_Home_Header{
     width: 100%;
     height: 50px;
     /* border-bottom: 1px dashed; */
     margin-top : 15px;
 }
-.Home_Content{
+.Calendar_Home_Content{
     width : calc(100% - 60px);
     height : calc(100% - 60px - 50px );
     padding : 30px;
@@ -86,7 +87,7 @@ color: #D41313;
 color: #5260D0;
 }
 
-.Application{
+.Calendar_Application{
     width:  calc( 100% / 7 - 10px - 4px );
     height: calc( 100% / 6.5 - 10px - 4px );
     border-radius: 10px;
@@ -97,7 +98,7 @@ color: #5260D0;
     box-shadow: 0px 0px 15px var(--main_color_3);
 }
 
-.Application .calendar_days{
+.Calendar_Application .calendar_days{
     width: 100%;
     height: 100%;
     border: 0px solid;
@@ -107,7 +108,7 @@ color: #5260D0;
     box-shadow: 0px 0px 15px var(--main_color_4);
 }
 
-.Hidden_Application{
+.Hidden_Calendar_Application{
     width:  calc( 100% / 7 - 10px - 4px );
     height: calc( 100% / 6.5 - 10px - 4px );
     border-radius: 10px;
@@ -119,15 +120,16 @@ color: #5260D0;
     box-shadow: 0px 0px 15px var(--main_hidden_color_3);
     
 }
-.Hidden_Application .calendar_days{
+.Hidden_Calendar_Application .calendar_days{
     width: 100%;
     height: 100%;
     border: 0px solid;
     border-radius: 10px;
     color: rgba(95, 111, 82, 0.5);
-    background-color : var(--main_hidden_color_3);
+    /* background-color : var(--main_hidden_color_3); */
     box-shadow: 0px 0px 15px var(--main_hidden_color_4);
 }
+
 
 .calendar_days_header{
 width: calc(100% - 2px);
@@ -179,17 +181,19 @@ font-family: 'Arial', sans-serif; /* 폰트 변경 */
 display: flex;
 justify-content: center; /* 가로 가운데 정렬 */
 /*   color : #4169E1; */
+font-size: 12px; /* 폰트 크기 설정 */
 color : #6A5ACD;
 }
 
 .day_spending{
 display: flex;
 justify-content: center; /* 가로 가운데 정렬 */
+font-size: 12px; /* 폰트 크기 설정 */
 color : #D41313;
 /*   color : #AE3A40; */
 
 }
-.home_title{
+.Calendar_Home_title{
 color : var(--main_color_3);
 text-align : center;
 font-size: 40px; /* 폰트 크기 설정 */
@@ -199,6 +203,7 @@ font-family: 'Arial', sans-serif; /* 폰트 변경 */
 
 .sel_year{
 width: calc( 100% / 7 - 18px );
+min-width: 70px;
 height: 30px;
 border-radius: 5px;
 color : var(--main_color_3);
@@ -226,9 +231,9 @@ font-weight: bold; /* 폰트 굵기 설정 */
 font-family: 'Arial', sans-serif; /* 폰트 변경 */
 }
 
-.abc{
+.dayDetail{
     width:calc(25% - 2px);
-    height:700px;
+    height:calc(100% - 100px);
     float:right;
     border-radius: 15px;
     background-color : var(--main_color_1);
@@ -236,7 +241,7 @@ font-family: 'Arial', sans-serif; /* 폰트 변경 */
     box-shadow: -2px 0px 5px var(--main_color_3);
 }
 
-.abc_header{
+.dayDetail_header{
 width:100%;
 height:100px;
 border-radius: 15px;
@@ -249,15 +254,15 @@ align-items: center; /* 세로 가운데 정렬 */
 /* background-color:#666666; */
 }
 
-.abc_content{
+.dayDetail_content{
 width:100%;
-height:600px;
+height:calc(100% - 105px);
 border-radius: 15px;
 /* background-color:#888888; */
 overflow:auto;
 }
 
-.abc_con_dt{
+.dayDetail_con_dt{
 width : 80%;
 height : 110px;
 margin:15px auto;
@@ -269,8 +274,13 @@ border: 2px solid var(--main_color_3);
 box-shadow: 0px 0px 15px var(--main_color_3);
 }
 
-.abc_con_dt_hd{
+.dayDetail_con_dt_hd{
 width:100%;
 height:25px;
+color : var(--main_color_3);
 border-bottom: 2px solid var(--main_color_3);
+
+display: flex;
+justify-content: center; /* 가로 가운데 정렬 */
+align-items: center; /* 세로 가운데 정렬 */
 }

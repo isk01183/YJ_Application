@@ -35,7 +35,7 @@ export default function Login() {
             </form>
 
             {/* 하단에 이미지 부분 */}
-            <footer><Link to='/'><img src="https://www.polymer-project.org/images/logos/p-logo.svg"/></Link>
+            <footer><Link to='/'></Link>
             <p>You Papago <Link to='/'>Go</Link></p>
             </footer>
             </body>

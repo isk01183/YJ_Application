@@ -35,7 +35,7 @@
 }
 .Menu_Content{
     width: calc(100% - 155px);
-    min-width: 929px;
+    /* min-width: 929px; */
     height: 75px;
     margin: 5px 5px 5px 55px;
     /* background-color: #555555; */

@@ -29,9 +29,10 @@ const [bool, setBool] = useState(false)
 
 // 변수가 변경되면 이벤트 실행 ( 페이지 최초 진입시 해당 이벤트 실행 x )
 // useEffect(()=>{ 이벤트 }, [변수])
-useEffect(()=>{ if (bool) { val_Check("Pw") } }, [rePw])
-useEffect(()=>{ if (bool) { val_Check("Email") } }, [reEmail])
-useEffect(()=>{ if (bool) { val_Check("Tel") } }, [reTel])
+
+// useEffect(()=>{ if (bool) { val_Check("Pw") } }, [rePw])
+// useEffect(()=>{ if (bool) { val_Check("Email") } }, [reEmail])
+// useEffect(()=>{ if (bool) { val_Check("Tel") } }, [reTel])
 
 // 페이지 최초 진입시 useEffect이벤트 제어를 위하여 추가 ( 최초 진입 시 실행 )
 useEffect(() => { 
@@ -51,7 +52,37 @@ const gacha_Info = (params) => {
       });
 }
 
-const val_Check = (cla) => {
+const focus_event = React.useCallback((cla) => {
+    var che_var = reId;
+    var focus_event_label = document.querySelector('.label_Id');
+
+    if ( "Id" === cla ){
+        focus_event_label = document.querySelector('.label_Id');
+        che_var = reId;
+    }else if( "Pw" === cla ){
+        focus_event_label = document.querySelector('.label_Pw');
+        che_var = rePw;
+    }else if( "Email" === cla ){
+        focus_event_label = document.querySelector('.label_Email');
+        che_var = reEmail;
+    }else if( "Tel" === cla ){
+        focus_event_label = document.querySelector('.label_Tel');
+        che_var = reTel;
+    }
+
+    if( null == che_var || "" === che_var ){
+        focus_event_label.style.top = '';
+        focus_event_label.style.transform = '';
+        focus_event_label.style.left ='';
+    }else{
+        focus_event_label.style.top = '-47%';
+        focus_event_label.style.transform = 'scale(.75)';
+        focus_event_label.style.left ='-2px';
+        focus_event_label.style.font = '18px';
+    }
+}, [reId, rePw, reEmail, reTel]);
+
+const val_Check = React.useCallback((cla) => {
 
     if( "Id" === cla ){
         setChId('')
@@ -93,39 +124,12 @@ const val_Check = (cla) => {
             setChTel('휴대폰번호 앞 3자리는 010으로 입력해주세요.')
         }
     }
-    focus_event(cla);
-}
+  focus_event(cla);
+}, [reId, rePw, reEmail, reTel, focus_event]);
 
-const focus_event = (cla) =>{
-    var che_var = reId;
-    var focus_event_label = document.querySelector('.label_Id');
-
-    if ( "Id" === cla ){
-        focus_event_label = document.querySelector('.label_Id');
-        che_var = reId;
-    }else if( "Pw" === cla ){
-        focus_event_label = document.querySelector('.label_Pw');
-        che_var = rePw;
-    }else if( "Email" === cla ){
-        focus_event_label = document.querySelector('.label_Email');
-        che_var = reEmail;
-    }else if( "Tel" === cla ){
-        focus_event_label = document.querySelector('.label_Tel');
-        che_var = reTel;
-    }
-
-    if( null == che_var || "" === che_var ){
-        focus_event_label.style.top = '';
-        focus_event_label.style.transform = '';
-        focus_event_label.style.left ='';
-    }else{
-        focus_event_label.style.top = '-47%';
-        focus_event_label.style.transform = 'scale(.75)';
-        focus_event_label.style.left ='-2px';
-        focus_event_label.style.font = '18px';
-    }
-}
-
+useEffect(() => { if (bool) { val_Check("Pw"); } }, [bool, val_Check, rePw]);
+useEffect(() => { if (bool) { val_Check("Email"); } }, [bool, val_Check, reEmail]);
+useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
 
 
     return (

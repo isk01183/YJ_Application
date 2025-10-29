@@ -6,7 +6,7 @@ function Application() {
     return (
         <>
         <div className='Application'>
-            <Link to="/household_ledger">
+            <Link to="/householdLedger">
             <button>
                 Household
                 Ledger
@@ -19,8 +19,8 @@ function Application() {
             <button>Admin</button>
             </Link>
         </div>
-        <div className='Hidden_Application'>
-            <Link to="/">
+        <div className='Application'>
+            <Link to="/login">
             <button></button>
             </Link>
         </div>

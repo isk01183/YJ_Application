@@ -1,9 +1,9 @@
-package com.example.FoodRoad.biz.common.gacha.entity;
+package com.example.FoodRoad.biz.common.sample.entity;
 
 import lombok.Data;
 
 @Data
-public class Gacha {
+public class Sample {
 
 	// 세그먼트ID
 	private String sgmtId;

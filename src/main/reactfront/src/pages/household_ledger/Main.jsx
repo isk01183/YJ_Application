@@ -2,10 +2,24 @@ import '../../css/household_ledger/Main.css';
 import Menu from '../Common/Menu.jsx';
 import Bottom from '../Common/Bottom.jsx';
 import Category from '../Common/Category.jsx';
-import React, { useState} from 'react';
+import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
 export default function Main() {
 
     const [userInfo, setUserInfo] = useState({ nickname: '로그인을 해주세요', id: '' });
+
+    /* 이전 화면[로그인]에서 넘겨받은 값 세팅 S */
+    const location = useLocation();
+
+    useEffect(() => {
+        // state에 보낸 데이터가 있는지 확인
+        if (location.state) {
+            // 받아온 데이터로 userInfo 상태를 업데이트
+            setUserInfo(location.state);
+        }
+    // 'setUserInfo' 함수도 의존성 배열에 추가해주는 것이 좋음
+    }, [location.state, setUserInfo]);
+    /* 이전 화면[로그인]에서 넘겨받은 값 세팅 E */
 
     /* 현재의 YYYY MM 가져옴 */
     const currentYear = new Date().getFullYear();
@@ -78,8 +92,8 @@ export default function Main() {
             /* 일자에 요일 세팅 6:일요일 / 0:토요일 */
             if('N' === holiday_yn){
                 calendar_setWeek =  
-                    6 === set_week( year, month, i )?'calendar_days_header_holiday'
-                    : 0 === set_week( year, month, i )?'calendar_days_header_saturday'
+                    0 === set_week( year, month, i )?'calendar_days_header_holiday'
+                    : 6 === set_week( year, month, i )?'calendar_days_header_saturday'
                     :'calendar_days_header';
             }
 
@@ -203,48 +217,48 @@ export default function Main() {
                                 {/* 달력에 년도 세팅 */}
                                 <select className='sel_year' value = {year}  onChange={e => setYear(e.target.value)} >
                                     {CalendarYear_dates.map(date => (
-                                        <option value= {date.CalendarYear}>{date.CalendarYear}</option>
+                                        <option key={date.CalendarYear} value= {date.CalendarYear}>{date.CalendarYear}</option>
                                     ))}
                                 </select>
                                 {/* 달력에 월 세팅 */}
                                 <select className='sel_month' value = {month} onChange={e => setMonth(e.target.value)}>
                                     {CalendarMonth_dates.map(date => (
-                                        <option value= {date.CalendarMonth}>{date.CalendarMonth}</option>
+                                        <option key={date.CalendarMonth} value= {date.CalendarMonth}>{date.CalendarMonth}</option>
                                     ))}
                                 </select>
                             </div>
                         <div id='Calendar_Home_Content' className='Calendar_Home_Content'>
                             {/* 달력에 요일 세팅 */}
                             {CalendarWeek_dates.map(date => (
-                                <div class='week'> {date.calendar_week} </div>
+                                <div key={date.calendar_week} className='week'> {date.calendar_week} </div>
                             ))}
 
                             {/* 달력 이전 달 일자 세팅 */}
                             {calendar_previous_day_dates.map(date => (
-                                <div class='Hidden_Calendar_Application'>
-                                    <div class='calendar_days'>
-                                        <div class='calendar_days_header'> {date.previous_day} </div>
+                                <div key={date.previous_day}className='Hidden_Calendar_Application'>
+                                    <div className='calendar_days'>
+                                        <div className='calendar_days_header'> {date.previous_day} </div>
                                     </div>
                                 </div>
                             ))}
 
                             {/* 달력 선택된 달 일자 세팅 */}
                             {calendar_day_dates.map(date => (
-                                <div class='Calendar_Application'>
-                                    <div id = {date.id} class='calendar_days' onClick={() => calendarDaysClick(date)}>
-                                        <div class={date.calendar_weeks}> {date.calendar_days} </div>
+                                <div key={date.id} className='Calendar_Application'>
+                                    <div id = {date.id} className='calendar_days' onClick={() => calendarDaysClick(date)}>
+                                        <div className={date.calendar_weeks}> {date.calendar_days} </div>
                                         {/* [ date.day_income && ] - date.day_income 데이터가 없으면 해당 div안나옴 */}
-                                        {date.day_income && <div class='day_income'> ＋{date.day_income} </div>}
-                                        {date.day_spending && <div class='day_spending'> ＋{date.day_spending} </div>}
+                                        {date.day_income && <div className='day_income'> ＋{date.day_income} </div>}
+                                        {date.day_spending && <div className='day_spending'> ＋{date.day_spending} </div>}
                                     </div>
                                 </div>
                             ))}
 
                             {/* 달력 다음달 일자 세팅 */}
                             {calendar_next_day_dates.map(date => (
-                                <div class='Hidden_Calendar_Application'>
-                                    <div class='calendar_days'>
-                                        <div class='calendar_days_header'> {date.next_day} </div>
+                                <div key={date.next_day} className='Hidden_Calendar_Application'>
+                                    <div className='calendar_days'>
+                                        <div className='calendar_days_header'> {date.next_day} </div>
                                     </div>
                                 </div>
                             ))}
@@ -257,8 +271,7 @@ export default function Main() {
                 <div id='dayDetail_header' className='dayDetail_header'>{dayDetailHeader}</div>
                     <div className= 'dayDetail_content'>
                         {dayDetail.map(date => (
-                            
-                            <div className='dayDetail_con_dt'>
+                            <div key={date.title} className='dayDetail_con_dt'>
                                 <div className='dayDetail_con_dt_hd'>{date.title}</div>
                                 <div>{date.ImportExpenditure}</div>
                             </div>

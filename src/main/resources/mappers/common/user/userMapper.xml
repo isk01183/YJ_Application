@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.FoodRoad.biz.common.user.UserMapper">
+
+	<select id="loginCheck" parameterType = "com.example.FoodRoad.biz.common.user.dto.UserSearch" resultType="com.example.FoodRoad.biz.common.user.entity.User">
+		SELECT
+			SGMT_ID 	AS sgmtId	-- 세그먼트ID
+			, USER_ID 	AS userId	-- 유저ID
+			, USER_NM 	AS userNm	-- 유저명
+			, USER_PWD 	AS userPwd	-- 우저PW
+			, REG_DTM 	AS regDtm	-- 등록일시
+			, UPD_DTM 	AS updDtm	-- 변경일시
+			, EMAL 		AS emal		-- 이메일
+			, TEL 		AS tel		-- 전화번호
+			, GDE 		AS gde		-- 성별
+			, DEL_YN 	AS delYn	-- 삭제여부
+			, USER_LVL 	AS userLvl	-- 유저등급
+		FROM yj_application.dbo.USE_MNGMT_TBL
+		WHERE 1=1
+			AND SGMT_ID = #{sgmtId}
+			AND USER_ID = #{userId}
+			AND USER_PWD = #{userPwd}
+	</select>
+
+</mapper>

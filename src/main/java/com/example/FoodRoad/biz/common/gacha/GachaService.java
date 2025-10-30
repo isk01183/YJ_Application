@@ -25,11 +25,12 @@ public class GachaService {
 	 * </pre>
 	 */
 	public List<Gacha> selectGachaList(GachaSearch gachaSearch) throws GachaException {
-
-		List<Gacha> selectGachaList = new ArrayList<Gacha>();
+		System.out.println("GachaService");
+		List<Gacha> selectGachaList = new ArrayList<>();
 		int count = 1;
 	    if (count > 0) {
-		selectGachaList = gachaMapper.selectGachaList(gachaSearch);
+	    	selectGachaList = gachaMapper.selectGachaList(gachaSearch);
+	    	System.out.println(selectGachaList);
 	    }
 	    return selectGachaList;
 	}

@@ -42,7 +42,6 @@ export const gachaSort = ( date ) => {
             gacha_Sort.R[gacha_Sort.R.length] = dataRow;
         }
       };
-    //   console.log(gacha_Sort);
     return gacha_Sort;
 }
 

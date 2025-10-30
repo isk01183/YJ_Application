@@ -1,11 +1,11 @@
-package com.example.FoodRoad.biz.common.gacha.dto;
+package com.example.FoodRoad.biz.common.sample.dto;
 
 import lombok.Data;
 import lombok.ToString;
 
 @Data
 @ToString(callSuper = true)
-public class GachaSearch {
+public class SampleSearch {
 	
 	// 세그먼트ID
 	private String SGMT_ID;

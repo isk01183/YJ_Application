@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import '../../../css/Common/user/Register.css';
 import { Link } from 'react-router-dom';
@@ -25,26 +26,12 @@ const [chEmail, setChEail] = useState('')
 // TelChe
 const [chTel, setChTel] = useState('')
 //페이지 최초 진입시 useEffect이벤트 제어를 위하여 변수 추가
-const [bool, setBool] = useState(false)
-
-// 변수가 변경되면 이벤트 실행 ( 페이지 최초 진입시 해당 이벤트 실행 x )
-// useEffect(()=>{ 이벤트 }, [변수])
-
-// useEffect(()=>{ if (bool) { val_Check("Pw") } }, [rePw])
-// useEffect(()=>{ if (bool) { val_Check("Email") } }, [reEmail])
-// useEffect(()=>{ if (bool) { val_Check("Tel") } }, [reTel])
-
-// 페이지 최초 진입시 useEffect이벤트 제어를 위하여 추가 ( 최초 진입 시 실행 )
-useEffect(() => { 
-    setBool(true);
-    gacha_Info();
-}, [])
+// const [bool, setBool] = useState(false)
 
 const gacha_Info = (params) => {
     return axiosInstance
       .get(`/api/common/gacha/gachaList`, params)
       .then((response) => {
-        // console.log(response.data);
         gachaSort(response.data);
       })
       .catch((error) => {
@@ -92,7 +79,6 @@ const val_Check = React.useCallback((cla) => {
     }
 
     if( "Pw" === cla ){
-
         console.log( gacha(5,"Y") )
         setChPw('')
         setChPw2('')
@@ -117,7 +103,6 @@ const val_Check = React.useCallback((cla) => {
 
     if( "Tel" === cla ){
         setChTel('')
-        console.log(reTel.length);
         if( reTel.length !== 11 ){
             setChTel('전화번호를 형식을 확인해주세요.')
         }else if( reTel.substring(0, 3) !== "010" ){
@@ -127,10 +112,18 @@ const val_Check = React.useCallback((cla) => {
   focus_event(cla);
 }, [reId, rePw, reEmail, reTel, focus_event]);
 
-useEffect(() => { if (bool) { val_Check("Pw"); } }, [bool, val_Check, rePw]);
-useEffect(() => { if (bool) { val_Check("Email"); } }, [bool, val_Check, reEmail]);
-useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
+// 변수가 변경되면 이벤트 실행 ( 페이지 최초 진입시 해당 이벤트 실행 x )
+// useEffect(()=>{ 이벤트 }, [변수])
+// useEffect(() => { if (bool) { val_Check("Pw"); } }, [bool, val_Check, rePw]);
+// useEffect(() => { if (bool) { val_Check("Email"); } }, [bool, val_Check, reEmail]);
+// useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
 
+// 페이지 최초 진입시 useEffect이벤트 제어를 위하여 추가 ( 최초 진입 시 실행 )
+useEffect(() => {
+    // 모든 캐릭터 정보 세팅
+    gacha_Info();
+    // setBool(true);
+}, [])
 
     return (
         <div className="Register_Main">
@@ -148,6 +141,7 @@ useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
             </div>
             <div className="group">
                 <input type="Password" value={rePw} 
+                    onBlur={() => {val_Check("Pw")}}
                     onChange={(e) => { 
                         setRePw(e.target.value)
                     }}
@@ -180,6 +174,7 @@ useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
 
             <div className="group">
                <input type="text" value={reEmail} 
+                    onBlur={() => {val_Check("Email")}}
                     onChange={(e) => { 
                         setReEmail(e.target.value)
                     }}
@@ -189,6 +184,7 @@ useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
 
             <div className="group">
             <input type="text" value={reTel} 
+                    onBlur={() => {val_Check("Tel")}}
                     onChange={(e) => { 
                         setReTel(e.target.value)
                     }}

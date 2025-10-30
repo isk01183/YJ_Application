@@ -3,7 +3,7 @@ package com.example.FoodRoad.common.base;
 public class BaseException extends Exception {
 
 	private static final long serialVersionUID = -931424986051705037L;
-	
+
 	/**
 	   * 생성자
 	   */
@@ -24,5 +24,5 @@ public class BaseException extends Exception {
 	  public BaseException(Throwable cause) {
 	    super(cause);
 	  }
-	
+
 }

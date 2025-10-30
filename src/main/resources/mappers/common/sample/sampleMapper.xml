@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.FoodRoad.biz.common.sample.SampleMapper">
+
+	<select id="selectSampleList" parameterType = "com.example.FoodRoad.biz.common.sample.dto.SampleSearch" resultType="com.example.FoodRoad.biz.common.sample.entity.Sample">
+		SELECT 		/* SampleMapper.selectSampleList */
+			SGMT_ID AS sgmtId				-- 세그먼트ID
+			, GACHA_DV_CD AS sampleDvCd 		-- 가챠구분코드
+			, GACHA_ID AS sampleId 			-- 가챠ID
+			, GACHA_ELMT_CD AS sampleElmtCd 	-- 가챠속성코드
+			, GACHA_LVL AS sampleLvl 		-- 가챠등급
+			, GACHA_NAME AS sampleName 		-- 가챠이름
+			, PICKUP_YN AS pickupYn 		-- 픽업 설명 여부
+		FROM yj_application.dbo.GACHA_BAS_TBL
+		ORDER BY GACHA_ID
+	</select>
+
+</mapper>

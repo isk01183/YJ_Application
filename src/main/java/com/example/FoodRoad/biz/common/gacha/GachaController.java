@@ -20,7 +20,8 @@ public class GachaController {
 
 	@GetMapping("/gachaList")
 	public List<Gacha> selectGachaList(GachaSearch gachaSearch) throws GachaException {
+		System.out.println("GachaController");
 		return gachaService.selectGachaList(gachaSearch);
 	}
-	
+
 }

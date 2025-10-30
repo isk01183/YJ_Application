@@ -13,7 +13,7 @@
 
 .Login_main h3 { color: #C7EEB1; }
 
-.Login_main body {
+.Login_main .body {
 	font-family: Helvetica;
 	/* background: #eee; */
   -webkit-font-smoothing: antialiased;

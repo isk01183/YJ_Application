@@ -1,23 +1,32 @@
 
 import React, { useEffect, useState } from 'react'
 import '../../../css/Common/user/Register.css';
-import { Link } from 'react-router-dom';
-import { gacha } from '../../../js/Common/Common.js';
-import { gachaSort } from '../../../js/Common/Common.js';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+// import { gacha } from '../../../js/Common/Common.js';
+// import { gachaSort } from '../../../js/Common/Common.js';
 import axiosInstance from '../../../api';
 export default function Register() {
 
+const navigate = useNavigate();
+const location = useLocation();
+const fromPath = location.state?.from || '/login';
 // ID
 const [reId, setReId] = useState('')
+// userNm
+const [reUserNm, setReUserNm] = useState('')
 // PW
 const [rePw, setRePw] = useState('')
 // E-mail
 const [reEmail, setReEmail] = useState('')
 // Tel
 const [reTel, setReTel] = useState('')
+//Gender
+const [reGender, setReGender] = useState('')
 
 // IdChe
 const [chId, setChId] = useState('')
+// NmChe
+const [chNm, setChNm] = useState('')
 // PwChe
 const [chPw, setChPw] = useState('')
 const [chPw2, setChPw2] = useState('')
@@ -28,16 +37,16 @@ const [chTel, setChTel] = useState('')
 //페이지 최초 진입시 useEffect이벤트 제어를 위하여 변수 추가
 // const [bool, setBool] = useState(false)
 
-const gacha_Info = (params) => {
-    return axiosInstance
-      .get(`/api/common/gacha/gachaList`, params)
-      .then((response) => {
-        gachaSort(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-}
+// const gacha_Info = (params) => {
+//     return axiosInstance
+//       .get(`/api/common/gacha/gachaList`, params)
+//       .then((response) => {
+//         gachaSort(response.data);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+// }
 
 const focus_event = React.useCallback((cla) => {
     var che_var = reId;
@@ -46,6 +55,9 @@ const focus_event = React.useCallback((cla) => {
     if ( "Id" === cla ){
         focus_event_label = document.querySelector('.label_Id');
         che_var = reId;
+    }else if( "Nm" === cla ){
+        focus_event_label = document.querySelector('.label_Nm');
+        che_var = reUserNm;
     }else if( "Pw" === cla ){
         focus_event_label = document.querySelector('.label_Pw');
         che_var = rePw;
@@ -67,63 +79,109 @@ const focus_event = React.useCallback((cla) => {
         focus_event_label.style.left ='-2px';
         focus_event_label.style.font = '18px';
     }
-}, [reId, rePw, reEmail, reTel]);
+}, [reId, reUserNm, rePw, reEmail, reTel]);
 
 const val_Check = React.useCallback((cla) => {
 
     if( "Id" === cla ){
-        setChId('')
-        if( "1" === reId ){
-            setChId('이 아이디는 이미 사용중 입니다.')
+        setChId('');
+        if( "" !== reId ){
+            const idCheckParams = {
+                sgmtId: "FR_GAME",  // 실제 세그먼트 ID
+                userId: reId,     // 사용자가 입력한 ID
+            };
+            axiosInstance.post(`/api/common/user/idCheck`, idCheckParams)
+            .then((response) => {
+                console.log( response.data );
+                if( 1 === response.data ){
+                    setChId('이 아이디는 이미 사용중 입니다.');
+                }
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    }
+
+    if( "Nm" === cla ){
+        setChNm('');
+        const hasUpperCase = /[A-Z]/g.test(reUserNm);
+        const hasLowerCase = /[a-z]/g.test(reUserNm);
+
+        if( "" !== reUserNm && ( !hasUpperCase && !hasLowerCase ) ){
+            setChNm('닉네임은 영문으로 입력해주세요.')
         }
     }
 
     if( "Pw" === cla ){
-        console.log( gacha(5,"Y") )
-        setChPw('')
-        setChPw2('')
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/g.test(rePw);
+        setChPw('');
+        setChPw2('');
+        const hasSpecialChar = /[!@#$%^&*,.?":|]/g.test(rePw);
         const hasUpperCase = /[A-Z]/g.test(rePw);
         const hasLowerCase = /[a-z]/g.test(rePw);
 
-        if( !hasSpecialChar || !hasUpperCase || !hasLowerCase ){
+        if( "" !== rePw && ( !hasSpecialChar || !hasUpperCase || !hasLowerCase ) ){
             setChPw('대문자,소문자,특수문자 1개 이상 입력해주세요.')
-            setChPw2('사용 가능한 특수문자 !@#$%^&*(),.?":{}|<>')
+            setChPw2('사용 가능한 특수문자 !@#$%^&*,.?":|')
         }
     }
 
     if( "Email" === cla ){
-        setChEail('')
-        if( !reEmail.includes('@') || !reEmail.includes('.') ){
+        setChEail('');
+        if( "" !== reEmail && ( !reEmail.includes('@') || !reEmail.includes('.') ) ){
             setChEail('이메일 형식으로 입력해주세요.')
-        }else if( !reEmail.includes('gamil.com') && !reEmail.includes('naver.com') ){
-            setChEail('gamil 또는 naver 이메일을 입력해주세요.')
+        }else if( "" !== reEmail && ( !reEmail.includes('gmail.com') && !reEmail.includes('naver.com') ) ){
+            setChEail('gmail 또는 naver 이메일을 입력해주세요.')
         }
     }
 
     if( "Tel" === cla ){
-        setChTel('')
-        if( reTel.length !== 11 ){
+        setChTel('');
+        if( "" !== reTel && reEmail.includes('-') ){
+            setChTel('-을 제외한 숫자만 입력해주세요.')
+        }else if( "" !== reTel && reTel.length !== 11 ){
             setChTel('전화번호를 형식을 확인해주세요.')
-        }else if( reTel.substring(0, 3) !== "010" ){
+        }else if( "" !== reTel && reTel.substring(0, 3) !== "010" ){
             setChTel('휴대폰번호 앞 3자리는 010으로 입력해주세요.')
         }
     }
   focus_event(cla);
-}, [reId, rePw, reEmail, reTel, focus_event]);
+}, [reId, reUserNm, rePw, reEmail, reTel, focus_event]);
 
-// 변수가 변경되면 이벤트 실행 ( 페이지 최초 진입시 해당 이벤트 실행 x )
-// useEffect(()=>{ 이벤트 }, [변수])
-// useEffect(() => { if (bool) { val_Check("Pw"); } }, [bool, val_Check, rePw]);
-// useEffect(() => { if (bool) { val_Check("Email"); } }, [bool, val_Check, reEmail]);
-// useEffect(() => { if (bool) { val_Check("Tel"); } }, [bool, val_Check, reTel]);
+function registerClick(){
+    const Params = {
+        sgmtId: "FR_GAME"  // 실제 세그먼트 ID
+        , userId: reId
+        , userNm: reUserNm
+        , userPwd: rePw
+        , emal: reEmail
+        , tel: reTel
+        , gde: reGender
+    };
+    
+    if( 0 !== chId.length + chPw.length + chPw2.length + chEmail.length + chTel.length 
+        || 0 === reId.length + rePw.length + reEmail.length + reTel.length + reGender.length
+    ){
+        alert("입력하신 정보를 확인해주세요.")
+    }else{
+        console.log(Params);
+        axiosInstance.post(`/api/common/user/insertUser`, Params)
+        .then((response) => {
+            // console.log( response.data );
+            alert("회원가입이 완료 되었습니다.")
+            navigate(fromPath, { state: "", replace: true });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+};
 
 // 페이지 최초 진입시 useEffect이벤트 제어를 위하여 추가 ( 최초 진입 시 실행 )
-useEffect(() => {
-    // 모든 캐릭터 정보 세팅
-    gacha_Info();
-    // setBool(true);
-}, [])
+// 변수가 변경되면 이벤트 실행 ( 페이지 최초 진입시 해당 이벤트 실행 x )
+// useEffect(()=>{ 이벤트 }, [변수])
+// useEffect(() => { val_Check("Id"); }, [reId]);
+useEffect(() => { val_Check("Pw"); }, [rePw, val_Check]);
+useEffect(() => { val_Check("Email"); }, [reEmail, val_Check]);
+useEffect(() => {val_Check("Tel"); }, [reTel, val_Check]);
 
     return (
         <div className="Register_Main">
@@ -134,27 +192,29 @@ useEffect(() => {
 
             <form>
             <div className="group">
-                <input type="text" onBlur={() => {val_Check("Id")}} value={reId} onChange={(e) => { setReId(e.target.value) }}/>
+                <input type="text" value={reId} onBlur={() => {val_Check("Id")}} onChange={(e) => { setReId(e.target.value) }}/>
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label className="label_Id">ID</label>
             </div>
+
             <div className="group">
-                <input type="Password" value={rePw} 
-                    onBlur={() => {val_Check("Pw")}}
-                    onChange={(e) => { 
-                        setRePw(e.target.value)
-                    }}
-                />
+                <input type="text" value={reUserNm} onBlur={() => {val_Check("Nm")}} onChange={(e) => { setReUserNm(e.target.value) }}/>
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label className="label_Nm">Name</label>
+            </div>
+
+            <div className="group">
+                <input type="Password" value={rePw} onChange={(e) => { setRePw(e.target.value) }}/>
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label className="label_Pw">Password</label>
             </div>
 
-
-
             <div className="account_Check">
                 <div className="id_Check">{chId}</div>
+                <div className="id_Check">{chNm}</div>
                 <div className="pw_Check">{chPw}</div>
                 <div className="pw_Check2">{chPw2}</div>
             </div>
@@ -162,33 +222,22 @@ useEffect(() => {
             <div className="group">
                 <div className='gender_div'>
                     Gender
-                    <select className='gender_sel'>
+                    <select className='gender_sel' value = {reGender}  onChange={e => setReGender(e.target.value)} >
                         <option value="" >Select</option>
                         <option value="M">Man</option>
                         <option value="W">Woman</option>
-                        <option value="N">Nondisclosure</option>
                     </select>
                 </div>
 
             </div>
 
             <div className="group">
-               <input type="text" value={reEmail} 
-                    onBlur={() => {val_Check("Email")}}
-                    onChange={(e) => { 
-                        setReEmail(e.target.value)
-                    }}
-                />
+               <input type="text" value={reEmail} onChange={(e) => { setReEmail(e.target.value) }} />
                 <label className="label_Email">E-mail</label>
             </div>
 
             <div className="group">
-            <input type="text" value={reTel} 
-                    onBlur={() => {val_Check("Tel")}}
-                    onChange={(e) => { 
-                        setReTel(e.target.value)
-                    }}
-                />
+            <input type="text" value={reTel} onChange={(e) => { setReTel(e.target.value) }} />
                 <label className="label_Tel">Tel</label>
             </div>
 
@@ -197,7 +246,7 @@ useEffect(() => {
                 <div className="Tel_Check">{chTel}</div>
             </div>
 
-            <button type="button" className="button buttonBlue">가입
+            <button type="button" className="button buttonBlue" onClick={() => registerClick()} >가입
                 <div className="ripples buttonRipples">
                     <span className="ripplesCircle"></span>
                 </div>

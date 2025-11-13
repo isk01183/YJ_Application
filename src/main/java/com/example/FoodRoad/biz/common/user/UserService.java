@@ -17,11 +17,28 @@ public class UserService {
 	UserMapper userMapper;
 
 	/**
-	 * 유저 목록 가져오기 Test
+	 * 로그인
 	 */
 	public List<User> loginCheck(UserSearch userSearch) throws UserException {
 		List<User> selectUserList = new ArrayList<>();
     	selectUserList = userMapper.loginCheck(userSearch);
 	    return selectUserList;
+	}
+	
+	/**
+	 * 회원가입 시 ID 중복체크
+	 */
+	public List<User> idCheck(UserSearch userSearch) throws UserException {
+		List<User> selectIdCheck = new ArrayList<>();
+		selectIdCheck = userMapper.idCheck(userSearch);
+	    return selectIdCheck;
+	}
+	
+	/**
+	 * 회원가입 시 ID 중복체크
+	 */
+	public int insertUser(UserSearch userSearch) throws UserException {
+		int insertUser = userMapper.insertUser(userSearch);
+	    return insertUser;
 	}
 }

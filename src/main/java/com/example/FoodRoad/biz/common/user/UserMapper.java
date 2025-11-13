@@ -13,4 +13,10 @@ public interface UserMapper {
 
 	List<User> loginCheck(UserSearch userSearch)
     throws UserException;
+	
+	List<User> idCheck(UserSearch selectIdCheck)
+	throws UserException;
+	
+	int insertUser(UserSearch selectIdCheck)
+	throws UserException;
 }

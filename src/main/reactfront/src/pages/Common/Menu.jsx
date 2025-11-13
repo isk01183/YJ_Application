@@ -3,12 +3,13 @@ import '../../css/Common/Menu.css';
 import '../../css/Common/Common.css';
 // import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import Link from react-router-dom
+import { idChange } from '../../js/household_ledger/Main.js';
 export default function Menu({ userInfo, setUserInfo }) {
 
-    const location = useLocation(); // 2. 훅을 실행해 현재 위치 정보 가져오기
+    const location = useLocation();
     
     function handleLogoutSuccess() {
-        // 서버 통신 후 받아온 값 예시
+        idChange("");
         setUserInfo({ nickname: "로그인을 해주세요", id: "" });
     }
 

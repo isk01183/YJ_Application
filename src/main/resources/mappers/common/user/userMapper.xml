@@ -18,9 +18,48 @@
 			, USER_LVL 	AS userLvl	-- 유저등급
 		FROM yj_application.dbo.USE_MNGMT_TBL
 		WHERE 1=1
+			AND DEL_YN = 'N'
 			AND SGMT_ID = #{sgmtId}
 			AND USER_ID = #{userId}
 			AND USER_PWD = #{userPwd}
 	</select>
 
+	<select id="idCheck" parameterType = "com.example.FoodRoad.biz.common.user.dto.UserSearch" resultType="com.example.FoodRoad.biz.common.user.entity.User">
+		SELECT
+			SGMT_ID 	AS sgmtId	-- 세그먼트ID
+			, USER_ID 	AS userId	-- 유저ID
+		FROM yj_application.dbo.USE_MNGMT_TBL
+		WHERE 1=1
+			AND SGMT_ID = #{sgmtId}
+			AND USER_ID = #{userId}
+	</select>
+	
+	<insert id="insertUser" parameterType = "com.example.FoodRoad.biz.common.user.dto.UserSearch">
+		INSERT INTO yj_application.dbo.USE_MNGMT_TBL(
+			SGMT_ID
+			, USER_ID
+			, USER_NM
+			, USER_PWD
+			, REG_DTM
+			, UPD_DTM
+			, EMAL
+			, TEL
+			, GDE
+			, DEL_YN
+			, USER_LVL
+		) VALUES(
+			#{sgmtId}
+			, #{userId}
+			, #{userNm}
+			, #{userPwd}
+			, FORMAT(GETDATE(), 'yyyyMMddHHmmss')
+			, FORMAT(GETDATE(), 'yyyyMMddHHmmss')
+			, #{emal}
+			, #{tel}
+			, #{gde}
+			, 'N'
+			, 'NM'
+		)
+	</insert>
+	
 </mapper>

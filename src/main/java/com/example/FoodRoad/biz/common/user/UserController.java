@@ -51,6 +51,30 @@ public class UserController {
 	    }
 	}
 	
+	/**
+     * 회원가입 시 ID중복 체크
+     * 반환 타입을 List<User>가 아닌 ResponseEntity<?>로 변경
+     * (HTTP 상태 코드와 데이터를 함께 반환하기 위함)
+     */
+	@PostMapping("/idCheck")
+	public ResponseEntity<?> idCheck(@RequestBody UserSearch userSearch) throws UserException {	    
+	    //	'List<User>' 타입으로 받아야함
+	    List<User> userList = userService.idCheck(userSearch);
+	    //    리스트가 null이거나 비어있는지(isEmpty()) 확인하는 것이 올바른 로그인 실패 처리
+	    return ResponseEntity.ok(userList.size());
+	}
 
+	/**
+     * 회원가입
+     * 반환 타입을 List<User>가 아닌 ResponseEntity<?>로 변경
+     * (HTTP 상태 코드와 데이터를 함께 반환하기 위함)
+     */
+	@PostMapping("/insertUser")
+	public ResponseEntity<?> insertUser(@RequestBody UserSearch userSearch) throws UserException {	    
+	    //	'List<User>' 타입으로 받아야함
+		int userList = userService.insertUser(userSearch);
+	    //    리스트가 null이거나 비어있는지(isEmpty()) 확인하는 것이 올바른 로그인 실패 처리
+	    return ResponseEntity.ok(userList);
+	}
 }
 
